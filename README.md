@@ -38,29 +38,123 @@ Strict permission modeling governs material requests through a multi-stage appro
 
 ## 📂 Project Structure
 
-```text
-Material-Request-Management-System/
+Material-request-management-system/
+├── .DS_Store
+├── .env.example
+├── .gitattributes
+├── .gitignore
+├── README.md
 ├── backend/
-│   ├── main.py                 # FastAPI application entry point
-│   ├── models.py               # SQLAlchemy database models
-│   ├── schemas.py              # Pydantic validation schemas
-│   ├── database.py             # MySQL connection & session management
-│   ├── auth.py                 # JWT, Bcrypt, and Cookie handling
-│   ├── .env                    # Backend environment variables
-│   └── requirements.txt        # Python dependencies
+│   ├── .DS_Store
+│   ├── Data_M.xlsx
+│   ├── database.py
+│   ├── email_service.py
+│   ├── import_legacy.py
+│   ├── main.py
+│   ├── models.py
+│   ├── routers/
+│   │   ├── .DS_Store
+│   │   ├── admin.py
+│   │   ├── auth.py
+│   │   ├── creator.py
+│   │   ├── data_loader.py
+│   │   ├── gst.py
+│   │   ├── history.py
+│   │   ├── it_admin.py
+│   │   ├── material_head.py
+│   │   ├── plant_head.py
+│   │   ├── purchase.py
+│   │   ├── store.py
+│   │   └── workflow.py
+│   ├── schemas.py
+│   ├── seed_users.py
+│   ├── services/
+│   │   └── user_service.py
+│   └── utils/
+│       └── audit.py
+├── database/
+│   └── schema.sql
 ├── frontend/
+│   ├── .gitignore
+│   ├── README.md
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public/
+│   │   ├── data/
+│   │   │   ├── Distribution_Channel.xlsx
+│   │   │   ├── Purchasing_Group.xlsx
+│   │   │   ├── Sales_Organization.xlsx
+│   │   │   ├── Valuation_Class.xlsx
+│   │   │   ├── Valuation_Group.xlsx
+│   │   │   ├── locations.xlsx
+│   │   │   ├── material_groups.XLSX
+│   │   │   ├── plants.xlsx
+│   │   │   └── uom.xlsx
+│   │   ├── favicon.png
+│   │   ├── icons.svg
+│   │   ├── robots.txt
+│   │   └── web.config
 │   ├── src/
-│   │   ├── components/         # Reusable React UI components
-│   │   ├── pages/              # Dashboard, Login, and Request views
-│   │   ├── utils/              # apiClient.js (Axios configurations)
-│   │   ├── App.jsx             # React router configuration
-│   │   └── main.jsx            # React DOM rendering
-│   ├── public/                 # Static assets
-│   ├── .env                    # Frontend environment variables
-│   ├── package.json            # Node.js dependencies
-│   └── vite.config.js          # Vite build configuration
-├── .gitignore                  # Git untracked files
-└── README.md                   # Project documentation
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets/
+│   │   │   ├── hero.png
+│   │   │   ├── react.svg
+│   │   │   ├── viraj_logo.jpg
+│   │   │   └── vite.svg
+│   │   ├── components/
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   ├── forms/
+│   │   │   │   ├── ErrorMessage.jsx
+│   │   │   │   └── SearchableDropdown.jsx
+│   │   │   ├── layout/
+│   │   │   │   ├── AppLayout.jsx
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   └── Sidebar.jsx
+│   │   │   └── ui/
+│   │   │       └── AuditTimeline.jsx
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   ├── pages/
+│   │   │   ├── Admin/
+│   │   │   │   └── AdminDashboard.jsx
+│   │   │   ├── Approvals/
+│   │   │   │   ├── GlobalAuditPage.jsx
+│   │   │   │   ├── GlobalDashboard.jsx
+│   │   │   │   ├── GstDashboard.jsx
+│   │   │   │   ├── History.jsx
+│   │   │   │   ├── MaterialHeadDashboard.jsx
+│   │   │   │   ├── PlantHeadDashboard.jsx
+│   │   │   │   ├── PurchaseDashboard.jsx
+│   │   │   │   └── StoreDashboard.jsx
+│   │   │   ├── CreatorWorkspace/
+│   │   │   │   ├── EditRequestForm.jsx
+│   │   │   │   ├── MyRequests.jsx
+│   │   │   │   ├── NewRequestForm.jsx
+│   │   │   │   └── TrackRequests.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Unauthorized.jsx
+│   │   ├── services/
+│   │   │   ├── apiClient.js
+│   │   │   ├── authApi.js
+│   │   │   └── requestApi.js
+│   │   └── utils/
+│   │       ├── formatters.js
+│   │       └── roleHelpers.js
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── init_mssql.py
+├── locustfile.py
+├── migrate.py
+├── requirements.txt
+├── start_backend.bat
+└── test_connection.py
+
 ## ⚙️ Installation & Local Setup
 
 ### 1. Prerequisites
