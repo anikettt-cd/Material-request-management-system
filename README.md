@@ -37,7 +37,7 @@ Strict permission modeling governs material requests through a multi-stage appro
 ---
 
 ## 📂 Project Structure
-
+```text
 Material-request-management-system/
 ├── .DS_Store
 ├── .env.example
